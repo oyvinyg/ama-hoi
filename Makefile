@@ -38,8 +38,8 @@ upgrade-deps: $(BUILD_VENV)/bin/pip-compile
 
 .PHONY: deploy
 deploy: init format test# login
-	@echo "\nDeploying to stage: $${STAGE:-dev}\n"
-	AWS_PROFILE=$(.AWS_PROFILE) sls deploy --stage $${STAGE:-dev}
+	@echo "\nDeploying to stage: $${STAGE:-prod}\n"
+	AWS_PROFILE=$(.AWS_PROFILE) sls deploy --stage $${STAGE:-prod}
 
 .PHONY: undeploy
 undeploy:# login
