@@ -5,7 +5,7 @@ data "aws_ssm_parameter" "db_password" {
 
 resource "aws_rds_cluster" "rds_cluster" {
   cluster_identifier           = "ama-hoi-db"
-  database_name                = "ama-hoi"
+  database_name                = "amahoi"
   master_username              = "postgres"
   master_password              = data.aws_ssm_parameter.db_password.value
   final_snapshot_identifier    = "ama-hoi-db-snapshot"
@@ -16,7 +16,7 @@ resource "aws_rds_cluster" "rds_cluster" {
   engine_mode                  = "serverless"
   engine                       = "aurora-postgresql"
   scaling_configuration {
-    min_capacity = 1
+    min_capacity = 2
   }
 }
 
