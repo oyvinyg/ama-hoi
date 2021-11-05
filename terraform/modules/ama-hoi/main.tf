@@ -7,6 +7,6 @@ locals {
   region     = data.aws_region.current.name
   tags = {
     Owner       = "ama-hoi"
-    Environment = "dev"
+    Environment = var.env
   }
 }
