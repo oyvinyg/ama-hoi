@@ -26,6 +26,8 @@ jmespath==0.10.0
     # via
     #   boto3
     #   botocore
+mangum==0.12.3
+    # via ama-hoi (setup.py)
 pydantic==1.8.2
     # via
     #   ama-hoi (setup.py)
@@ -41,7 +43,9 @@ sniffio==1.2.0
 starlette==0.16.0
     # via fastapi
 typing-extensions==3.10.0.2
-    # via pydantic
+    # via
+    #   mangum
+    #   pydantic
 urllib3==1.26.7
     # via botocore
 uvicorn==0.15.0

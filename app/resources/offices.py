@@ -23,4 +23,4 @@ def list_offices(username: str):
     response_model=Office,
 )
 def get_office(office_id: str, username: str):
-    return db.get_office(office_id, "")
+    return db.get_office(office_id, username)
