@@ -15,7 +15,10 @@ provider:
   tags:
     GIT_REV: ${git:branch}:${git:sha1}
     VERSION: ${self:custom.version}
+  iamManagedPolicies:
+    - "arn:aws:iam::${aws:accountId}:policy/oma-hoi-policy"
   environment:
+    ROOT_PATH: "api"
     GIT_REV: ${git:branch}:${git:sha1}
     VERSION: ${self:custom.version}
     SERVICE_NAME: ${self:service}
@@ -23,39 +26,18 @@ package:
   exclude:
     - '**/*'
   include:
-    - lambda_handlers/*.py
+    - app/**
+    - handler.py
 
 
 functions:
-  get_organizations:
-    handler: lambda_handlers.handler.list_organizations
+  app:
+    handler: handler.handler
     events:
-      - http:
-          path: "organizations"
-          method: "get"
-          cors: true
+      - http: ANY /
+      - http: "ANY {proxy+}"
+    timeout: 29
 
-  get_organization:
-    handler: lambda_handlers.handler.get_organization
-    events:
-      - http:
-          path: "organizations/{organization_id}"
-          method: "get"
-          cors: true
-  get_offices:
-    handler: lambda_handlers.handler.list_offices
-    events:
-      - http:
-          path: "offices"
-          method: "get"
-          cors: true
-  get_office:
-    handler: lambda_handlers.handler.get_office
-    events:
-      - http:
-          path: "offices/{office_id}"
-          method: "get"
-          cors: true
 
 plugins:
   - serverless-plugin-git-variables

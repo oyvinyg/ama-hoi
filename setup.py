@@ -17,10 +17,5 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/oyvinyg/ama-hoi",
     packages=find_packages(),
-    install_requires=[
-        "boto3",
-        "fastapi",
-        "pydantic==1.8.2",
-        "uvicorn"
-    ],
+    install_requires=["boto3", "fastapi", "pydantic==1.8.2", "uvicorn", "mangum"],
 )
