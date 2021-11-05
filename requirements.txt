@@ -6,14 +6,20 @@
 #
 anyio==3.3.4
     # via starlette
+asgiref==3.4.1
+    # via uvicorn
 boto3==1.19.11
     # via ama-hoi (setup.py)
 botocore==1.22.11
     # via
     #   boto3
     #   s3transfer
+click==8.0.3
+    # via uvicorn
 fastapi==0.70.0
     # via ama-hoi (setup.py)
+h11==0.12.0
+    # via uvicorn
 idna==3.3
     # via anyio
 jmespath==0.10.0
@@ -38,3 +44,5 @@ typing-extensions==3.10.0.2
     # via pydantic
 urllib3==1.26.7
     # via botocore
+uvicorn==0.15.0
+    # via ama-hoi (setup.py)
