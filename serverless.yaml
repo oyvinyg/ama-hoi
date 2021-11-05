@@ -27,11 +27,33 @@ package:
 
 
 functions:
-  hello:
-    handler: lambda_handlers.handler.hello
+  get_organizations:
+    handler: lambda_handlers.handler.list_organizations
     events:
       - http:
-          path: ""
+          path: "organizations"
+          method: "get"
+          cors: true
+
+  get_organization:
+    handler: lambda_handlers.handler.get_organization
+    events:
+      - http:
+          path: "organizations/{organization_id}"
+          method: "get"
+          cors: true
+  get_offices:
+    handler: lambda_handlers.handler.list_offices
+    events:
+      - http:
+          path: "offices"
+          method: "get"
+          cors: true
+  get_office:
+    handler: lambda_handlers.handler.get_office
+    events:
+      - http:
+          path: "offices/{office_id}"
           method: "get"
           cors: true
 
