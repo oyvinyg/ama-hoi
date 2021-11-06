@@ -70,7 +70,7 @@ def create_office(
 @router.get(
     "/{organization_id}/offices",
     status_code=status.HTTP_200_OK,
-    response_model=Office,
+    response_model=List[Office],
 )
 def list_offices(
     organization_id,
