@@ -11,6 +11,8 @@ organization_members = {"user-a": ["1"], "user-b": ["2"]}
 office_list = [
     {
         "name": "off A",
+        "id": "1",
+        "organization_id": "1",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 40,
@@ -19,6 +21,8 @@ office_list = [
     },
     {
         "name": "off B",
+        "id": "2",
+        "organization_id": "1",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 60,
@@ -27,6 +31,8 @@ office_list = [
     },
     {
         "name": "off C",
+        "id": "3",
+        "organization_id": "2",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 50,
