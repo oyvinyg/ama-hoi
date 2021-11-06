@@ -41,13 +41,25 @@ class OfficeDataTable:
             Key={self.hash_key: organization_id, self.range_key: self.organization_type}
         ).get("Item", None)
         if item:
-            return Organization
+            return Organization.parse_obj(item)
         raise ErrorResponse(404, f"Organization with id {organization_id} not found")
 
     def list_offices(self, organization_id: str) -> List[Office]:
         query_response = self.table.query(
             IndexName="IdByTypeIndex",
-            KeyConditionExpression=Key(self.range_key).eq(self.office_type),
+            KeyConditionExpression=Key(self.range_key).eq(self.office_type)
+            # & Key(self.hash_key).begins_with(f"{organization_id}/"),
         )
         items = query_response["Items"]
-        return [Organization.parse_obj(item) for item in items]
+        return [Office.parse_obj(item) for item in items]
+
+    def get_office(self, organization_id, office_id) -> Office:
+        item = self.table.get_item(
+            Key={
+                self.hash_key: f"{organization_id}/{office_id}",
+                self.range_key: self.office_type,
+            }
+        ).get("Item", None)
+        if item:
+            return Office.parse_obj(item)
+        raise ErrorResponse(404, f"Organization with id {organization_id} not found")

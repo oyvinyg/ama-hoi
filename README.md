@@ -1,5 +1,6 @@
 # ama-hoi
-Miljøhack 2021
+REST API for coordinating employees and available work stations in office buildings.
+For full API documentation check out our [swagger documentation](https://y7415815dh.execute-api.eu-west-1.amazonaws.com/prod/api/openapi)
 
 
 ### Setup developer environment
@@ -24,7 +25,7 @@ make init
 
 To install new python packages add it to `setup.py => install_requires` then run `pip-compile` => `pip install -r requirements.txt`
 
-## Tests
+### Running tests
 
 Tests are run using [tox](https://pypi.org/project/tox/)
 
@@ -37,6 +38,20 @@ For tests and linting we use [pytest](https://pypi.org/project/pytest/),
 [black](https://pypi.org/project/black/).
 
 
-## Deploy
+### Running the application locally
 
-`make deploy`
+This api uses FastAPI web framework. To run the application locally: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
+
+
+### Deploy
+
+This Service uses serverless framework for deploying lambda functions. For ease of use we have contained the serverless deploy command in
+our makefile. In order to deploy simply run:
+```
+make login
+make deploy
+```
+
+### Infrastructure
+
+Our infrastructure is setup using terraform. The terraform code can be found in the subdirectory `/terraform`
