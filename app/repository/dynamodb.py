@@ -11,7 +11,7 @@ from app.errors import ErrorResponse
 class OfficeDataTable:
 
     table_name = "office-data"
-    hash_key = "game_id"
+    hash_key = "id"
     range_key = "type"
 
     organization_type = "organization"
@@ -48,7 +48,7 @@ class OfficeDataTable:
         query_response = self.table.query(
             IndexName="IdByTypeIndex",
             KeyConditionExpression=Key(self.range_key).eq(self.office_type)
-            # & Key(self.hash_key).begins_with(f"{organization_id}/"),
+            & Key(self.hash_key).begins_with(f"{organization_id}/"),
         )
         items = query_response["Items"]
         return [Office.parse_obj(item) for item in items]

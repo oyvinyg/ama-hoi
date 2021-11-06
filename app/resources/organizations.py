@@ -70,7 +70,7 @@ def create_office(
 @router.get(
     "/{organization_id}/offices",
     status_code=status.HTTP_200_OK,
-    response_model=Office,
+    response_model=List[Office],
 )
 def list_offices(
     organization_id,
@@ -78,6 +78,19 @@ def list_offices(
     office_data_table: OfficeDataTable = Depends(office_data_table),
 ):
     return office_data_table.list_offices(organization_id)
+
+
+@router.get(
+    "/{organization_id}/offices/{office_id}",
+    status_code=status.HTTP_200_OK,
+    response_model=Office,
+)
+def get_office(
+    organization_id,
+    office_id,
+    office_data_table: OfficeDataTable = Depends(office_data_table),
+):
+    return office_data_table.get_office(organization_id, office_id)
 
 
 @router.patch(

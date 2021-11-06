@@ -25,7 +25,7 @@ class Organization(BaseModel):
 
 
 class Office(BaseModel):
-    name: str
+    name: str = ""
     id: str = None
     img_url: str = ""
     description: str = ""
@@ -35,7 +35,7 @@ class Office(BaseModel):
     members: List[str] = []
 
     def set_id(self, organization_id):
-        self.id = f"{organization_id}/org-{shortuuid.random(length=5).lower()}"
+        self.id = f"{organization_id}/off-{shortuuid.random(length=5).lower()}"
 
     def to_dynamodb_item(self):
         item = self.dict()

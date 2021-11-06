@@ -6,38 +6,38 @@ from app.models.models import Organization, Office
 
 headers = {}
 organizations = [{"name": "org A", "id": "1"}, {"name": "org B", "id": "2"}]
-organization_members = {"user-a": ["1"], "user-b": ["2"]}
+organization_members = {"user-a": ["1", "2"], "user-b": ["1", "2"]}
 
 office_list = [
     {
-        "name": "off A",
+        "name": "NAV",
         "id": "1",
         "organization_id": "1",
-        "img_url": "",
-        "description": "Lorem Ipsum",
+        "img_url": "https://gowork.no/wp-content/uploads/2019/01/privat-kontor-coworking-gowork-kontorplasser-e1549274728285.jpg",
+        "description": "Hyggelig kontor plassert på Carl Berner",
         "capacity": 40,
         "available_seats": 10,
-        "facilities": ["toilets"],
+        "facilities": ["Solskjerming", "Balkong", "Kantine", "Café"],
     },
     {
-        "name": "off B",
+        "name": "Skatteetaten",
         "id": "2",
         "organization_id": "1",
-        "img_url": "",
-        "description": "Lorem Ipsum",
+        "img_url": "https://www.kinnarps.no/globalassets/images/articles/design-for-wellbeing-and-brand-building/design_branding_02.jpg?preset=article-maxLg1x",
+        "description": "Moderne bygg med god ventilasjon",
         "capacity": 60,
         "available_seats": 20,
-        "facilities": ["coffee machine"],
+        "facilities": ["Opplegg for remote møter", "Planter"],
     },
     {
-        "name": "off C",
+        "name": "Utdanningsetaten",
         "id": "3",
         "organization_id": "2",
-        "img_url": "",
-        "description": "Lorem Ipsum",
+        "img_url": "https://leiekontor.no/web_images/direkteopplastet/5bfe80464a017_LeieKontor.jpeg",
+        "description": "Flott lokale på Helsfyr",
         "capacity": 50,
         "available_seats": 3,
-        "facilities": ["casual fridays"],
+        "facilities": ["Ergonomiske stoler", "Dockingstasjoner"],
     },
 ]
 
