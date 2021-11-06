@@ -25,7 +25,7 @@ class Organization(BaseModel):
 
 
 class Office(BaseModel):
-    name: str
+    name: str = ""
     id: str = None
     img_url: str = ""
     description: str = ""
