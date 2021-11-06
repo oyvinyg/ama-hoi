@@ -31,8 +31,8 @@ class Office(BaseModel):
     description: str = ""
     capacity: int = 0
     available_seats: int = 0
-    facilities: List[str] = []
-    members: List[str] = []
+    facilities: List[str] = None
+    members: List[str] = None
 
     def set_id(self, organization_id):
         self.id = f"{organization_id}/off-{shortuuid.random(length=5).lower()}"
