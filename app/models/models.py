@@ -12,8 +12,11 @@ class OrganizationMembers(BaseModel):
 
 class Organization(BaseModel):
     name: str
-    id: str = f"org-{shortuuid.random(length=5).lower()}"
+    id: str = None
     members: List[OrganizationMembers] = []
+
+    def set_id(self):
+        self.id = f"org-{shortuuid.random(length=5).lower()}"
 
     def to_dynamodb_item(self):
         item = self.dict()

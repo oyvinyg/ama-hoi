@@ -11,8 +11,6 @@ organization_members = {"user-a": ["1"], "user-b": ["2"]}
 office_list = [
     {
         "name": "off A",
-        "id": "1",
-        "organization_id": "1",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 40,
@@ -21,8 +19,6 @@ office_list = [
     },
     {
         "name": "off B",
-        "id": "2",
-        "organization_id": "1",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 60,
@@ -31,8 +27,6 @@ office_list = [
     },
     {
         "name": "off C",
-        "id": "3",
-        "organization_id": "2",
         "img_url": "",
         "description": "Lorem Ipsum",
         "capacity": 50,
@@ -82,3 +76,16 @@ def get_office(office_id: str, username: str):
         raise ErrorResponse(403, "You do not have access ")
 
     return Office.parse_obj(office)
+
+
+{
+    "name": "org A",
+    "id": "org-g5vjr",
+    "members": [{"role": "admin", "username": "user-a"}],
+}
+
+{
+    "name": "org B",
+    "id": "org-g5vjr",
+    "members": [{"role": "admin", "username": "user-a"}],
+}
