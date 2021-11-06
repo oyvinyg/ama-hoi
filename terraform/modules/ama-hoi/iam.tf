@@ -21,6 +21,8 @@ data "aws_iam_policy_document" "oma-hoi-policy" {
     resources = [
       aws_dynamodb_table.office_data.arn,
       "${aws_dynamodb_table.office_data.arn}/index/*",
+      aws_dynamodb_table.office_radar_data.arn,
+      "${aws_dynamodb_table.office_radar_data.arn}/index/*"
     ]
   }
 }

@@ -1,5 +1,6 @@
 import json
 
+from app.errors import ErrorResponse
 from app.models.models import Organization, Office
 
 
@@ -78,10 +79,6 @@ def get_office(office_id: str, username: str):
         }
 
     if office["organization_id"] not in organization_members.get(username, []):
-        raise ForbiddenException
+        raise ErrorResponse(403, "You do not have access ")
 
     return Office.parse_obj(office)
-
-
-class ForbiddenException(Exception):
-    pass

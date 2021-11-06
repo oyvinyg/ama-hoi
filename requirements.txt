@@ -36,6 +36,8 @@ python-dateutil==2.8.2
     # via botocore
 s3transfer==0.5.0
     # via boto3
+shortuuid==1.0.1
+    # via ama-hoi (setup.py)
 six==1.16.0
     # via python-dateutil
 sniffio==1.2.0
