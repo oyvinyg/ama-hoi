@@ -76,16 +76,3 @@ def get_office(office_id: str, username: str):
         raise ErrorResponse(403, "You do not have access ")
 
     return Office.parse_obj(office)
-
-
-{
-    "name": "org A",
-    "id": "org-g5vjr",
-    "members": [{"role": "admin", "username": "user-a"}],
-}
-
-{
-    "name": "org B",
-    "id": "org-g5vjr",
-    "members": [{"role": "admin", "username": "user-a"}],
-}

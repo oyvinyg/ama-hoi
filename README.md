@@ -1,5 +1,6 @@
 # ama-hoi
 REST API for coordinating employees and available work stations in office buildings.
+For full API documentation check out our [swagger documentation](https://y7415815dh.execute-api.eu-west-1.amazonaws.com/prod/api/openapi)
 
 
 ### Setup developer environment
@@ -49,4 +50,8 @@ our makefile. In order to deploy simply run:
 ```
 make login
 make deploy
-``
+```
+
+### Infrastructure
+
+Our infrastructure is setup using terraform. The terraform code can be found in the subdirectory `/terraform`
