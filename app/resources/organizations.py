@@ -80,6 +80,19 @@ def list_offices(
     return office_data_table.list_offices(organization_id)
 
 
+@router.get(
+    "/{organization_id}/offices/{office_id}",
+    status_code=status.HTTP_200_OK,
+    response_model=Office,
+)
+def get_office(
+    organization_id,
+    office_id,
+    office_data_table: OfficeDataTable = Depends(office_data_table),
+):
+    return office_data_table.get_office(organization_id, office_id)
+
+
 @router.patch(
     "/{organization_id}/offices/{office_id}",
     status_code=status.HTTP_200_OK,

@@ -11,7 +11,7 @@ from app.errors import ErrorResponse
 class OfficeDataTable:
 
     table_name = "office-data"
-    hash_key = "game_id"
+    hash_key = "id"
     range_key = "type"
 
     organization_type = "organization"
