@@ -5,13 +5,16 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.errors import ErrorResponse
-from app.resources import organizations, offices
+from app.resources import organizations, offices, radar_data
 
 root_path = os.environ.get("ROOT_PATH", "")
 
 app = FastAPI(
-    title="TODO",
-    description="TODO",
+    title="AMA HOI API",
+    description="""API for managing work station availability in offices.
+    A typical use case is that an office admin can decide the number work stations that should be available.
+    Then in the other end a normal employee can check whether there are any available work stations across multiple offices before
+    deciding where to work for the day""",
     version="0.1.0",
     root_path=root_path,
 )
@@ -32,6 +35,13 @@ app.add_middleware(
 app.include_router(organizations.router, prefix="/organizations")
 
 app.include_router(offices.router, prefix="/offices")
+
+app.include_router(radar_data.router, prefix="/radar-data")
+
+
+@app.get("/openapi")
+def openapi():
+    return app.openapi()
 
 
 @app.exception_handler(ErrorResponse)
