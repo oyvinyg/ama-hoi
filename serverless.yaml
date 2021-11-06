@@ -18,7 +18,7 @@ provider:
   iamManagedPolicies:
     - "arn:aws:iam::${aws:accountId}:policy/oma-hoi-policy"
   environment:
-    ROOT_PATH: "api"
+    ROOT_PATH: "/api"
     GIT_REV: ${git:branch}:${git:sha1}
     VERSION: ${self:custom.version}
     SERVICE_NAME: ${self:service}
